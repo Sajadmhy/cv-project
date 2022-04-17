@@ -1,6 +1,7 @@
 import React , {Component} from "react";
 import Name from "./Components/Name";
 import Email from "./Components/Email";
+import Phone from "./Components/Phone";
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,12 @@ class App extends Component {
       emailStack: {
         text:'',
       },
+      phone: {
+        text:'',
+      },
+      phoneStack: {
+        text:'',
+      },
     };
   }
 
@@ -30,10 +37,13 @@ class App extends Component {
     });
   };
 
-  handleChangeEmail = (e) => {
+  handleEditName = (e) => {
     this.setState({
-      email: {
-        text: e.target.value,
+      name: {
+        text: this.state.nameStack.text,
+      },
+      nameStack:{
+        text: '',
       },
     });
   };
@@ -51,7 +61,26 @@ class App extends Component {
         text: '',
       },
     });
-  }
+  };
+  };
+
+  handleChangeEmail = (e) => {
+    this.setState({
+      email: {
+        text: e.target.value,
+      },
+    });
+  };
+
+  handleEditEmail = (e) => {
+    this.setState({
+      email: {
+        text: this.state.emailStack.text,
+      },
+      emailStack:{
+        text: '',
+      },
+    });
   };
 
   handleSubmitEmail = (e) => {
@@ -67,11 +96,47 @@ class App extends Component {
         text: '',
       },
     });
+    }
+  };
+
+  handleChangePhone = (e) => {
+    this.setState({
+      phone: {
+        text: e.target.value,
+      },
+    });
+  };
+
+  handleEditPhone = (e) => {
+    this.setState({
+      phone: {
+        text: this.state.phoneStack.text,
+      },
+      phoneStack:{
+        text: '',
+      },
+    });
+  };
+
+  handleSubmitPhone = (e) => {
+    e.preventDefault();
+    if (this.state.phone.text === "") {
+      alert ("Please enter a phone number")
+    } else {
+    this.setState({
+      phoneStack: {
+        text: this.state.phone.text,
+      },
+      phone: {
+        text: '',
+      },
+    });
   }
   };
 
   render() {
-      const { name, email, nameStack, emailStack } = this.state;
+      const { name, email, nameStack, emailStack,
+       phone, phoneStack } = this.state;
 
       return (
       <div>
@@ -84,6 +149,7 @@ class App extends Component {
             id="taskInput"
           />
           <button type="submit">Add Name</button>
+          <button type= "button" onClick={this.handleEditName}>Edit Name</button>
         </form> 
         <form onSubmit={this.handleSubmitEmail}>
           <label htmlFor="email">Email</label>
@@ -94,10 +160,22 @@ class App extends Component {
             id="email"
           />
           <button type="submit">Add Email</button>
-          
+          <button type= "button" onClick={this.handleEditEmail}>Edit Email</button>
+        </form>
+        <form onSubmit={this.handleSubmitPhone}>
+          <label htmlFor="phone">Phone</label>
+          <input
+            onChange={this.handleChangePhone}
+            value={phone.text}
+            type= "tel"
+            id="phone"
+          />
+          <button type="submit">Add Phone Number</button>
+          <button type= "button" onClick={this.handleEditPhone}>Edit Phone Number</button>
         </form>
         <Name tasks={nameStack}/>
         <Email tasks={emailStack}/>
+        <Phone tasks={phoneStack}/>
       </div>
     );
   }
