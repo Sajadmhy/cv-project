@@ -3,6 +3,7 @@ import Name from "./Components/Name";
 import Email from "./Components/Email";
 import Phone from "./Components/Phone";
 import Skill from "./Components/Skill";
+import "./App.css"
 
 class App extends Component {
   constructor() {
@@ -181,7 +182,7 @@ class App extends Component {
        phone, phoneStack, skill, skillStack } = this.state;
 
       return (
-      <div>
+      <div className="cont">
         <form onSubmit={this.handleSubmitName}>
           <label htmlFor="taskInput">Name</label>
           <input
@@ -226,10 +227,12 @@ class App extends Component {
           <button type="submit">Add Skills</button>
           <button type= "button" onClick={this.handleClearSkill}>Clear Skills</button>
         </form>
-        <Name tasks={nameStack}/>
-        <Email tasks={emailStack}/>
-        <Phone tasks={phoneStack}/>
-        <Skill tasks={skillStack}/>
+        <div className="card">
+          <div className="name"><Name tasks={nameStack}/></div>
+          <div className="email"><Email tasks={emailStack}/></div>
+          <div className="phone"><Phone tasks={phoneStack}/></div>
+          <div className="skill"><Skill tasks={skillStack}/></div>
+        </div>
       </div>
     );
   }

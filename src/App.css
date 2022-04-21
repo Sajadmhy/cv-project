@@ -1,38 +1,66 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+form, label, button {
+  margin: 10px;
+}
+
+.cont {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  border-radius: 5px;
+  border-style: solid;
+  height: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input:hover {
+  background-color: lightblue;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
   color: white;
+  width: 140px;
+  height: 40px;
+  background-color: dodgerblue;
+  border-radius: 5px;
+  /* border-style: solid; */
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: purple;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  font-size: 36px;
+  font-family: 'Roboto';
+  background-color: lightgray;
+  padding: 10px 0;
+  margin: 50px;
+  border-radius: 20px;
+}
+
+.name p {
+  color: red;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.email p{
+  font-size: 30px;
+  margin: 0;
+}
+
+.phone p {
+  color: dodgerblue;
+  font-size: 30px;
+  margin: 15px 0 0 0;
+}
+
+.skill p {
+  display: inline;
+  margin: 0;
+  padding: 0 20px;
+  font-size: 20px;
 }
