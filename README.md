@@ -7,5 +7,5 @@ It was bootstrapped with [Create React App](https://github.com/facebook/create-r
 ReactJs
 Vanila CSS
 
-## Live Version
+<h2><a href=https://sajadmhy.github.io/cv-project/>Live Version</a></h2>
 
